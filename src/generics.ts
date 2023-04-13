@@ -108,24 +108,49 @@
 // store find('name', 'Apple');
 // store find('price', 100);
 
-interface Product {
-  name: string;
-  price: number;
+// interface Product {
+//   name: string;
+//   price: number;
+// }
+
+// type ReadOnly<T> = {
+//   readonly [K in keyof T]: T[K];
+// };
+
+// type Optional<T> = {
+//   [K in keyof T]?: T[K];
+// };
+
+// type Nullable<T> = {
+//   [K in keyof T]: T[K] | null;
+// };
+
+// let product: ReadOnly<Product> = {
+//   name: 'Apple',
+//   price: 100,
+// };
+
+// •Convert the function below to a generic function:
+// functionecho(arg) { returnarg; }
+function echo<T>(arg: T): T {
+  return arg;
 }
 
-type ReadOnly<T> = {
-  readonly [K in keyof T]: T[K];
-};
+//•When compiling the following piece of code, we get an error saying ‘Property name does not exist on type T’. How can we solve this problem?
 
-type Optional<T> = {
-  [K in keyof T]?: T[K];
-};
+function printName<T extends { name: string }>(obj: T) {
+  console.log(obj.name);
+}
 
-type Nullable<T> = {
-  [K in keyof T]: T[K] | null;
-};
+//•An Entity should have a unique identifier. The type of identifier, however, is dependent on the use case. In some cases, the ID might be a number, in other cases, it might be a string, GUID, etc. Represent the entity using a generic class.
 
-let product: ReadOnly<Product> = {
-  name: 'Apple',
-  price: 100,
-};
+class Entity<T> {
+  constructor(public id: T) {}
+}
+
+//•Given the following interface, what does keyof User return?
+
+interface User {
+  userId: number;
+  username: string;
+}
