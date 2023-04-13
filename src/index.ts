@@ -300,24 +300,57 @@
 //   abstract removeEvent(): void;
 // }
 
-interface Calander {
-  name: string;
-  addEvent(): void;
-  removeEvent(): void;
+// interface Calander {
+//   name: string;
+//   addEvent(): void;
+//   removeEvent(): void;
+// }
+
+// interface CloudCalendar extends Calander {
+//   sync(): void;
+// }
+
+// class GoogleCalendar implements Calander {
+//   name: string;
+//   constructor(public name: string) {}
+
+//   addEvent(): void {
+//     throw new Error('Method not implemented.');
+//   }
+//   removeEvent(): void {
+//     throw new Error('Method not implemented.');
+//   }
+// }
+
+class Logger {
+  constructor(public logFile: string) {}
+
+  log(message: string): void {
+    console.log(message);
+  }
 }
 
-interface CloudCalendar extends Calander {
-  sync(): void;
+class Person {
+  constructor(publicfirstName: string, publiclastName: string) {}
+
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
 
-class GoogleCalendar implements Calander {
-  name: string;
-  constructor(public name: string) {}
+// class Employee extends Person {
+//   constructor(firstName: string, lastName: string, public salary: number, ) {
+//     super(firstName, lastName);
+//   }
 
-  addEvent(): void {
-    throw new Error('Method not implemented.');
-  }
-  removeEvent(): void {
-    throw new Error('Method not implemented.');
-  }
+interface Address {
+  street: string;
+  city: string;
+  zipCode: number;
+}
+
+interface Employee {
+  name: string;
+  salary: number;
+  addresses: Address;
 }
