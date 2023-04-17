@@ -1,9 +1,6 @@
-// Create a decorator for adding a sauce to Pizza instances:
-function Sauce(sauce: string) {
-  return (constructor: Function) => {
-    constructor.prototype.sauce = sauce;
-  };
-}
+import { Circle, Square } from './shapes';
 
-@Sauce('pesto')
-class Pizza {}
+let circle = new Circle(1);
+let square = new Square(1);
+
+console.log(circle, square);
