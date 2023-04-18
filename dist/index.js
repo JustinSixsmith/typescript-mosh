@@ -1,5 +1,6 @@
-import { Circle, Square } from './shapes';
-let circle = new Circle(1);
-let square = new Square(1);
-console.log(circle, square);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tax_1 = require("./tax");
+let tax = (0, tax_1.calculateTax)(10000);
+console.log(tax);
 //# sourceMappingURL=index.js.map
